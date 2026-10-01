@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تقرير نقل المعرفة والتسليم | رِواء</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#00A4A6;--teal-light:#D9F2F2;--teal-dark:#005F60;
+  --purple:#653165;--purple-light:#EFE5EF;--purple-dark:#3e1b3e;
+  --amber:#BA7517;--amber-light:#FAEEDA;--amber-dark:#633806;
+  --blue:#185FA5;--blue-light:#E6F1FB;--blue-dark:#0C447C;
+  --green:#3B6D11;--green-light:#EAF3DE;--green-dark:#27500A;
+  --text:#1a1a1a;--text-muted:#666;--border:#ddd;--bg:#f4f4f4;--white:#fff;--soft:#fafafa;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --teal-light:rgba(0,164,166,.16);--teal-dark:#5FD6D7;
+    --purple-light:rgba(196,143,196,.16);--purple-dark:#E0B9E0;
+    --amber-light:rgba(227,166,75,.16);--amber-dark:#F0C27F;
+    --blue-light:rgba(111,179,224,.16);--blue-dark:#9FCDEB;
+    --green-light:rgba(140,190,90,.16);--green-dark:#B6DA8E;
+    --text:#ECEFEF;--text-muted:#A3ADAE;--border:#2C3638;--bg:#111819;--white:#182122;--soft:#1D2728;
+  }
+}
+:root[data-theme="dark"]{
+  --teal-light:rgba(0,164,166,.16);--teal-dark:#5FD6D7;
+  --purple-light:rgba(196,143,196,.16);--purple-dark:#E0B9E0;
+  --amber-light:rgba(227,166,75,.16);--amber-dark:#F0C27F;
+  --blue-light:rgba(111,179,224,.16);--blue-dark:#9FCDEB;
+  --green-light:rgba(140,190,90,.16);--green-dark:#B6DA8E;
+  --text:#ECEFEF;--text-muted:#A3ADAE;--border:#2C3638;--bg:#111819;--white:#182122;--soft:#1D2728;
+}
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.8}
+html.lang-en body{direction:ltr}
+.en{display:none}
+html.lang-en .ar{display:none}
+html.lang-en .en{display:block}
+html.lang-en span.en,html.lang-en b.en{display:inline}
+a{color:inherit;text-decoration:none}
+
+.page-header{background:linear-gradient(135deg,#653165 0%,#005F60 100%);color:#fff;padding:28px 32px 24px}
+.header-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.header-brand{display:flex;align-items:center;gap:14px}
+.brand-circle{width:50px;height:50px;border-radius:10px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.brand-text .title{font-size:20px;font-weight:700}
+.brand-text .sub{font-size:12.5px;opacity:.88;margin-top:3px}
+.lang-toggle{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:20px;padding:7px 16px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+.lang-toggle:hover{background:rgba(255,255,255,.28)}
+.header-meta{margin-top:18px;font-size:12px;opacity:.92;line-height:1.9}
+.status-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 14px;font-size:11.5px;font-weight:600;margin-top:6px;display:inline-block}
+
+.container{max-width:900px;margin:0 auto;padding:26px 20px 50px}
+
+.summary-bar{background:#653165;color:#fff;border-radius:10px;padding:16px 20px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.summary-kpi{text-align:center;flex:1;min-width:90px}
+.summary-kpi .num{font-size:24px;font-weight:700}
+.summary-kpi .lbl{font-size:10.5px;opacity:.88;margin-top:3px}
+.summary-divider{width:1px;background:rgba(255,255,255,.2);height:38px;flex-shrink:0}
+@media (max-width:640px){.summary-divider{display:none}.summary-kpi{min-width:40%}}
+
+.section{background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:16px;overflow:hidden}
+.section-header{display:flex;align-items:center;gap:10px;padding:13px 20px;border-bottom:1px solid var(--border)}
+.section-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.dot-teal{background:var(--teal)}.dot-purple{background:var(--purple)}.dot-amber{background:var(--amber)}.dot-blue{background:var(--blue)}.dot-green{background:var(--green)}
+.section-title{font-size:14.5px;font-weight:700;flex:1}
+.section-tag{font-size:10.5px;padding:3px 11px;border-radius:12px;font-weight:600;white-space:nowrap}
+.tag-teal{background:var(--teal-light);color:var(--teal-dark)}.tag-purple{background:var(--purple-light);color:var(--purple-dark)}.tag-amber{background:var(--amber-light);color:var(--amber-dark)}.tag-blue{background:var(--blue-light);color:var(--blue-dark)}.tag-green{background:var(--green-light);color:var(--green-dark)}
+.section-body{padding:18px 20px}
+.section-body p{margin-bottom:10px}
+.section-body p:last-child{margin-bottom:0}
+
+.check-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.check-list li{display:flex;gap:10px;align-items:flex-start}
+.check-list li::before{content:"✓";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--teal-light);color:var(--teal-dark);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:3px}
+
+/* timeline */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media (max-width:700px){.timeline{grid-template-columns:repeat(2,1fr)}}
+.t-card{border-radius:8px;padding:12px;font-size:12px;line-height:1.6}
+.t-card .d{font-size:15px;font-weight:800;display:block}
+.t-card .k{font-weight:700;display:block;margin-top:4px}
+.t-ks{background:var(--teal-light);color:var(--teal-dark)}
+.t-sh{background:var(--purple-light);color:var(--purple-dark)}
+
+/* meeting blocks */
+.meet{border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:12px;background:var(--soft)}
+.meet:last-child{margin-bottom:0}
+.meet-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.meet-head b{color:var(--teal-dark)}
+.meet-head small{color:var(--text-muted);font-size:12px}
+.topics{list-style:none;display:flex;flex-direction:column;gap:6px}
+.topics li{display:flex;gap:8px;font-size:13px}
+.topics li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:9px}
+
+/* portal groups */
+.pgroup{margin-bottom:16px}
+.pgroup:last-child{margin-bottom:0}
+.pgroup-title{font-size:13px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.pgroup-title::before{content:"";width:16px;height:2px;background:var(--accent,var(--teal));border-radius:2px}
+.pgroup-desc{font-size:12.5px;color:var(--text-muted);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;padding:5px 11px;border-radius:14px;border:1px solid var(--border);background:var(--soft);transition:.15s}
+a.chip:hover{border-color:var(--accent,var(--teal));background:var(--accent-tint,var(--teal-light))}
+.g-role{--accent:var(--blue);--accent-tint:var(--blue-light)}
+.g-know{--accent:var(--teal);--accent-tint:var(--teal-light)}
+.g-tools{--accent:var(--purple);--accent-tint:var(--purple-light)}
+.g-qual{--accent:var(--amber);--accent-tint:var(--amber-light)}
+
+/* link cards */
+.links{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (max-width:640px){.links{grid-template-columns:1fr}}
+.lcard{display:flex;flex-direction:column;gap:4px;border:1px solid var(--border);border-radius:8px;padding:12px 14px;background:var(--soft);transition:.15s}
+.lcard:hover{border-color:var(--teal);transform:translateY(-2px)}
+.lcard b{font-size:13.5px}
+.lcard span.desc{font-size:12px;color:var(--text-muted)}
+.lcard .ok{font-size:11px;font-weight:700;color:var(--green-dark);background:var(--green-light);border-radius:10px;padding:1px 9px;align-self:flex-start;margin-top:4px}
+.lcard .go{font-size:11.5px;color:var(--teal-dark);font-weight:700;margin-top:2px}
+
+.note{margin-top:12px;padding:11px 14px;border-radius:8px;background:var(--amber-light);color:var(--amber-dark);font-size:12.5px;font-weight:600}
+
+.page-footer{text-align:center;font-size:11.5px;color:var(--text-muted);padding-top:20px;margin-top:8px}
+.page-footer .hl{color:var(--teal-dark);font-weight:600}
+@media print{body{background:#fff}.lang-toggle{display:none}}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="header-top">
+    <div class="header-brand">
+      <div class="brand-circle">🤝</div>
+      <div class="brand-text">
+        <div class="title">
+          <span class="ar">تقرير نقل المعرفة والتسليم</span>
+          <span class="en">Knowledge Transfer &amp; Handover Report</span>
+        </div>
+        <div class="sub">
+          <span class="ar">جودة فريق نجاح العملاء — المصادر والأدوات والمعرفة التشغيلية</span>
+          <span class="en">CSM Quality — Resources, Tools &amp; Operational Knowledge</span>
+        </div>
+      </div>
+    </div>
+    <button class="lang-toggle" onclick="toggleLang()">
+      <span class="ar">🌐 English</span>
+      <span class="en">🌐 العربية</span>
+    </button>
+  </div>
+  <div class="header-meta">
+    <div>
+      <span class="ar">فداء يوسف — Sr. Quality &amp; Training Specialist &nbsp;|&nbsp; سبتمبر 2026</span>
+      <span class="en">Fidaa Yousef — Sr. Quality &amp; Training Specialist &nbsp;|&nbsp; September 2026</span>
+    </div>
+    <div class="status-badge">
+      <span class="ar">✓ مكتمل</span>
+      <span class="en">✓ Completed</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="summary-bar">
+    <div class="summary-kpi"><div class="num">2</div><div class="lbl"><span class="ar">اجتماعا نقل معرفة</span><span class="en">Knowledge Sessions</span></div></div>
+    <div class="summary-divider"></div>
+    <div class="summary-kpi"><div class="num">2</div><div class="lbl"><span class="ar">جلستا مرافقة عملية</span><span class="en">Shadowing Sessions</span></div></div>
+    <div class="summary-divider"></div>
+    <div class="summary-kpi"><div class="num">100%</div><div class="lbl"><span class="ar">مشاركة المصادر</span><span class="en">Resources Shared</span></div></div>
+    <div class="summary-divider"></div>
+    <div class="summary-kpi"><div class="num"><span class="ar">كاملة</span><span class="en">Full</span></div><div class="lbl"><span class="ar">صلاحيات للجميع</span><span class="en">Access for All</span></div></div>
+  </div>
+
+  <!-- 1 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot dot-teal"></div>
+      <div class="section-title"><span class="ar">١ &nbsp; نطاق التسليم</span><span class="en">1 &nbsp; Handover Scope</span></div>
+      <div class="section-tag tag-teal"><span class="ar">ما تم إنجازه</span><span class="en">Delivered</span></div>
+    </div>
+    <div class="section-body">
+      <p class="ar">قمتُ بنقل كامل المعرفة والأدوات الخاصة بجودة فريق نجاح العملاء، بحيث يكون كل ما يلزم لاستمرار العمل متاحًا وجاهزًا للاستخدام:</p>
+      <p class="en">I transferred the full knowledge and toolset of CSM Quality, so that everything needed to continue the work is available and ready to use:</p>
+      <ul class="check-list ar">
+        <li>مشاركة كافة المصادر المعرفية والأدوات.</li>
+        <li>مشاركة المعرفة من خلال اجتماعين.</li>
+        <li>تنفيذ المرافقة العملية (Shadowing) من خلال جلستين.</li>
+        <li>شرح بوابة نجاح العملاء (CSM Portal) والمصادر المعرفية فيها بالكامل.</li>
+        <li>مشاركة روابط البوابة والتقارير، ومنح صلاحيات كاملة للجميع.</li>
+        <li>تسليم نموذج التقييم جاهزًا ومضافًا فيه جميع الموظفين، مع ملف الردود.</li>
+        <li>تسليم الأتمتة الأسبوعية جاهزة ومختبرة.</li>
+        <li>تسليم لوحات المتابعة على Zoho، ومنها لوحة اختيار عينات التقييم.</li>
+      </ul>
+      <ul class="check-list en">
+        <li>Shared all knowledge resources and tools.</li>
+        <li>Knowledge sharing delivered through two meetings.</li>
+        <li>Practical shadowing delivered through two sessions.</li>
+        <li>Full walkthrough of the CSM Portal and all its knowledge resources.</li>
+        <li>Shared portal and report links, with full access granted to everyone.</li>
+        <li>Handed over the evaluation form — ready, with all employees added — plus its responses sheet.</li>
+        <li>Handed over the weekly automation — ready and tested.</li>
+        <li>Handed over the Zoho dashboards, including the evaluation sample-selection dashboard.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot dot-purple"></div>
+      <div class="section-title"><span class="ar">٢ &nbsp; الجدول الزمني للجلسات</span><span class="en">2 &nbsp; Session Timeline</span></div>
+      <div class="section-tag tag-purple"><span class="ar">4 جلسات</span><span class="en">4 Sessions</span></div>
+    </div>
+    <div class="section-body">
+      <div class="timeline">
+        <div class="t-card t-ks"><span class="d"><span class="ar">الأحد 13 سبتمبر</span><span class="en">Sun, Sep 13</span></span>1:30 – 3:00 pm<span class="k"><span class="ar">CSM Overview — 1</span><span class="en">CSM Overview — 1</span></span></div>
+        <div class="t-card t-ks"><span class="d"><span class="ar">الإثنين 14 سبتمبر</span><span class="en">Mon, Sep 14</span></span>3:00 pm<span class="k"><span class="ar">CSM Overview — 2</span><span class="en">CSM Overview — 2</span></span></div>
+        <div class="t-card t-sh"><span class="d"><span class="ar">الثلاثاء 29 سبتمبر</span><span class="en">Tue, Sep 29</span></span>3:00 – 4:00 pm<span class="k">QA Shadowing — 1</span></div>
+        <div class="t-card t-sh"><span class="d"><span class="ar">الأربعاء 30 سبتمبر</span><span class="en">Wed, Sep 30</span></span>3:00 – 4:00 pm<span class="k">QA Shadowing — 2</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot dot-teal"></div>
+      <div class="section-title"><span class="ar">٣ &nbsp; مشاركة المعرفة — اجتماعان</span><span class="en">3 &nbsp; Knowledge Sharing — Two Meetings</span></div>
+      <div class="section-tag tag-teal"><span class="ar">فريق الجودة</span><span class="en">Quality Team</span></div>
+    </div>
+    <div class="section-body">
+      <div class="meet">
+        <div class="meet-head">
+          <b><span class="ar">الاجتماع الأول — رحلة العميل من التفعيل إلى التبنّي</span><span class="en">Meeting 1 — Customer Journey: Activation to Adoption</span></b>
+          <small>13 Sep 2026</small>
+        </div>
+        <ul class="topics ar">
+          <li>رحلة العميل كاملة: الاستلام من المبيعات، التفعيل، التبنّي، وإعادة التفعيل.</li>
+          <li>مراحل التفعيل والمراحل الفرعية، ومتى يتم تحديثها حسب جاهزية العميل.</li>
+          <li>أتمتة الإعداد (Onboarding) في أول 7 أيام عبر واتساب، وآلية إيقافها وتوثيق السبب.</li>
+          <li>التعامل مع العميل غير الجاهز أو المنتظر للأجهزة، والعمل بالتوازي على رفع المنتجات والتدريب.</li>
+          <li>توثيق التفاعلات وملخص المشاعر (Sentiment) عند وجود تغيير فعلي فقط.</li>
+          <li>الانتقال للتبنّي: أول فاتورة، نقطة البيع، والتوسع في استخدام الوحدات والميزات.</li>
+          <li>استخدام Zoho للمتابعة، وMetabase كمرجع لبيانات العميل، وآلية التصعيد للفرق المختصة.</li>
+        </ul>
+        <ul class="topics en">
+          <li>The full customer journey: handover from Sales, activation, adoption, and reactivation.</li>
+          <li>Activation stages and sub-stages, and when to update them based on customer readiness.</li>
+          <li>First-7-days Onboarding automation via WhatsApp, how to stop it and document the reason.</li>
+          <li>Handling customers who aren't ready or are waiting for devices — product upload and training in parallel.</li>
+          <li>Documenting interactions and sentiment summaries only when there's an actual change.</li>
+          <li>Moving to adoption: first invoice, POS, and expanding module and feature usage.</li>
+          <li>Zoho for follow-up, Metabase as the customer data reference, and escalation to specialized teams.</li>
+        </ul>
+      </div>
+      <div class="meet">
+        <div class="meet-head">
+          <b><span class="ar">الاجتماع الثاني — إعادة التفعيل والحالات ومراجعة الجودة</span><span class="en">Meeting 2 — Reactivation, Cases &amp; Quality Review</span></b>
+          <small>14 Sep 2026</small>
+        </div>
+        <ul class="topics ar">
+          <li>إعادة التفعيل: تصنيف العملاء حسب مدة التوقف وآخر فاتورة، والتفريق بين انخفاض الاستخدام والتوقف الفعلي.</li>
+          <li>إدارة الحالات (Cases): مراجعة سياق العميل أولًا، تحديث الحالة والأسباب، والإغلاق بالحالة الصحيحة.</li>
+          <li>حالات عملاء منشآت ومهام الأتمتة، والتصعيد عند الحاجة.</li>
+          <li>ملفات المنتجات والتكاملات (رواق وGrubtech): المتطلبات ومعرّف المتجر لكل تطبيق توصيل.</li>
+          <li>منهجية مراجعة الجودة: النماذج، المحادثات، المكالمات، لوحة المعلومات، ومراجعة الحساب كاملًا عند الحاجة.</li>
+          <li>المعايرة المشتركة: تقييم عينتين إلى ثلاث عينات من المكالمات ومقارنة النتائج لتوحيد المعايير.</li>
+        </ul>
+        <ul class="topics en">
+          <li>Reactivation: segmenting customers by inactivity period and last invoice; low usage vs. actual churn.</li>
+          <li>Case management: review customer context first, update status and reasons, close with the right status.</li>
+          <li>Monsha'at customer cases and automation tasks, with escalation when needed.</li>
+          <li>Product files and integrations (Rewaq &amp; Grubtech): requirements and store ID per delivery app.</li>
+          <li>Quality review method: forms, chats, calls, the dashboard, and full account review when needed.</li>
+          <li>Joint calibration: scoring 2–3 call samples together and comparing results to align standards.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot dot-purple"></div>
+      <div class="section-title"><span class="ar">٤ &nbsp; المرافقة العملية (Shadowing) — جلستان</span><span class="en">4 &nbsp; QA Shadowing — Two Sessions</span></div>
+      <div class="section-tag tag-purple"><span class="ar">تطبيق عملي</span><span class="en">Hands-on</span></div>
+    </div>
+    <div class="section-body">
+      <p class="ar">بعد اجتماعي نقل المعرفة، نفّذتُ جلستي مرافقة عملية لأعمال تقييم الجودة يومي 29 و30 سبتمبر (3:00 – 4:00 مساءً)، لتطبيق ما تم شرحه على عمل التقييم الفعلي.</p>
+      <p class="en">Following the two knowledge sessions, I ran two hands-on QA shadowing sessions on Sep 29 and 30 (3:00 – 4:00 pm), applying what was covered to actual evaluation work.</p>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot dot-blue"></div>
+      <div class="section-title"><span class="ar">٥ &nbsp; شرح بوابة نجاح العملاء والمصادر المعرفية</span><span class="en">5 &nbsp; CSM Portal &amp; Knowledge Resources Walkthrough</span></div>
+      <div class="section-tag tag-blue"><span class="ar">شرح كامل</span><span class="en">Full Walkthrough</span></div>
+    </div>
+    <div class="section-body">
+      <p class="ar">شرحتُ البوابة كاملة قسمًا قسمًا، مع كل مصدر معرفي فيها وطريقة الوصول للمعلومة منه:</p>
+      <p class="en">I walked through the whole portal section by section, covering every knowledge resource and how to reach information in it:</p>
+
+      <div class="pgroup g-role">
+        <div class="pgroup-title"><span class="ar">🪪 الدور والالتزامات</span><span class="en">🪪 Role &amp; Commitments</span></div>
+        <div class="chips">
+          <a class="chip" href="https://fyousef-2023.github.io/CSM-Role/" target="_blank" rel="noopener"><span class="ar">دور موظف نجاح العملاء</span><span class="en">CSM Role</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/calendar/" target="_blank" rel="noopener"><span class="ar">الجدول اليومي والتحديثات</span><span class="en">Daily Schedule</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/documentation/" target="_blank" rel="noopener"><span class="ar">الالتزام بالتوثيق</span><span class="en">Documentation</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/Tagging/" target="_blank" rel="noopener"><span class="ar">الالتزام بالتاج</span><span class="en">Tagging</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/-CSM-Call-Checklist/" target="_blank" rel="noopener"><span class="ar">الالتزام بالمكالمة</span><span class="en">Call Checklist</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/chat/" target="_blank" rel="noopener"><span class="ar">المحادثات</span><span class="en">Chat Handling</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/CaseFollow/" target="_blank" rel="noopener"><span class="ar">إدارة الحالات</span><span class="en">Case Management</span></a>
+        </div>
+      </div>
+
+      <div class="pgroup g-know">
+        <div class="pgroup-title"><span class="ar">📚 المصادر المعرفية — حسب رحلة العميل</span><span class="en">📚 Knowledge Resources — by Customer Journey</span></div>
+        <div class="chips">
+          <a class="chip" href="https://fyousef-2023.github.io/CSM_Stages/" target="_blank" rel="noopener"><span class="ar">مراحل التفعيل</span><span class="en">Activation</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/Onboarding-Automation/" target="_blank" rel="noopener"><span class="ar">رحلة أتمتة الإعداد</span><span class="en">Onboarding Automation</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/Product/" target="_blank" rel="noopener"><span class="ar">رفع المنتجات</span><span class="en">Product Upload</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/Training/" target="_blank" rel="noopener"><span class="ar">التدريب</span><span class="en">Training</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/RewaaPay/" target="_blank" rel="noopener"><span class="ar">رِواء باي</span><span class="en">RewaaPay</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/Invoice/" target="_blank" rel="noopener"><span class="ar">فاتورة الاشتراك</span><span class="en">Subscription Invoice</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/Grubtech_CSM_Guide/" target="_blank" rel="noopener"><span class="ar">دليل Grubtech</span><span class="en">Grubtech Guide</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/Reactivation/" target="_blank" rel="noopener"><span class="ar">إعادة التفعيل</span><span class="en">Reactivation</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/CasesV2/" target="_blank" rel="noopener"><span class="ar">دليل إدارة الحالات</span><span class="en">Cases</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/monshaat/" target="_blank" rel="noopener"><span class="ar">حالات عملاء منشآت</span><span class="en">Monsha'at Cases</span></a>
+          <a class="chip" href="https://docs.google.com/document/d/1KqWFCuq4a_yS1yQZZy956dPUiQ71gbqn816GaMN3Jdo/edit" target="_blank" rel="noopener"><span class="ar">تقييم NPS</span><span class="en">Global NPS</span></a>
+          <a class="chip" href="https://rewaa-cx-portal-frontend-3u9n.onrender.com/sop-builder/" target="_blank" rel="noopener">SOP</a>
+          <a class="chip" href="https://fyousef-2023.github.io/Zatca/" target="_blank" rel="noopener"><span class="ar">دعم الفوترة الإلكترونية</span><span class="en">E-Invoicing Support</span></a>
+          <a class="chip" href="https://fyousef-2023.github.io/Cashback/" target="_blank" rel="noopener"><span class="ar">كاش باك</span><span class="en">Cashback</span></a>
+          <a class="chip" href="https://help.rewaa.com/ar-SA" target="_blank" rel="noopener"><span class="ar">مركز المساعدة</span><span class="en">Help Center</span></a>
+          <a class="chip" href="https://www.youtube.com/@RewaaTechnology/playlists" target="_blank" rel="noopener"><span class="ar">قناة يوتيوب</span><span class="en">YouTube</span></a>
+          <a class="chip" href="https://docs.google.com/spreadsheets/d/1rnUH9_MxW3TWzqNzVJdiSH9AE3U1gHnpN2uBnJBQFGA/edit" target="_blank" rel="noopener"><span class="ar">الردود السريعة</span><span class="en">Quick Replies</span></a>
+          <span class="chip"><span class="ar">الأجهزة والباقات</span><span class="en">Devices &amp; Packages</span></span>
+        </div>
+      </div>
+
+      <div class="pgroup g-tools">
+        <div class="pgroup-title"><span class="ar">🧰 البرامج والأدوات</span><span class="en">🧰 Programs &amp; Tools</span></div>
+        <div class="chips">
+          <a class="chip" href="https://platform.open.cx/inbox" target="_blank" rel="noopener">Open CX</a>
+          <a class="chip" href="https://crm.zoho.com/crm/org709483323/tab/Accounts/custom-view/4412475000000087515/list" target="_blank" rel="noopener">Zoho CRM</a>
+          <a class="chip" href="https://bi-internal.platform.rewaatech.com/dashboard/9109-merchant-profile-dashboard" target="_blank" rel="noopener">Metabase</a>
+          <a class="chip" href="https://rewaa-tech.3cx.ae/#/people" target="_blank" rel="noopener">3CX</a>
+          <a class="chip" href="https://admin.platform.rewaatech.com/accounts/list" target="_blank" rel="noopener">Admin</a>
+          <span class="chip">Frill</span>
+          <span class="chip"><span class="ar">قنوات Slack</span><span class="en">Slack Channels</span></span>
+        </div>
+      </div>
+
+      <div class="pgroup g-qual">
+        <div class="pgroup-title"><span class="ar">✅ الالتزام والجودة</span><span class="en">✅ Compliance &amp; Quality</span></div>
+        <div class="chips">
+          <a class="chip" href="https://fyousef-2023.github.io/CSM_Quality_Criteria_Interactive/" target="_blank" rel="noopener"><span class="ar">معايير جودة التعامل مع العملاء</span><span class="en">CSM Quality Criteria</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot dot-amber"></div>
+      <div class="section-title"><span class="ar">٦ &nbsp; أدوات الجودة المسلّمة</span><span class="en">6 &nbsp; Quality Tools Handed Over</span></div>
+      <div class="section-tag tag-amber"><span class="ar">جاهزة للاستخدام</span><span class="en">Ready to Use</span></div>
+    </div>
+    <div class="section-body">
+      <div class="links">
+        <a class="lcard" href="https://docs.google.com/forms/d/e/1FAIpQLSfT2ot6jQ29lsbEc6IIe4C8Nu6P-jqyEZrYFBtOIEChvyuYoQ/viewform" target="_blank" rel="noopener">
+          <b><span class="ar">📝 نموذج التقييم</span><span class="en">📝 Evaluation Form</span></b>
+          <span class="desc"><span class="ar">جاهز ومضاف فيه جميع الموظفين.</span><span class="en">Ready, with all employees added.</span></span>
+          <span class="ok"><span class="ar">جاهز</span><span class="en">Ready</span></span>
+        </a>
+        <a class="lcard" href="https://docs.google.com/spreadsheets/d/10xu05vrZioirAVVs3CeGUdHdTGm8iW66rbgT33xyH_Q/edit?usp=drive_link" target="_blank" rel="noopener">
+          <b><span class="ar">📊 ملف الردود</span><span class="en">📊 Responses Sheet</span></b>
+          <span class="desc"><span class="ar">ملف ردود نموذج التقييم.</span><span class="en">The evaluation form's responses file.</span></span>
+          <span class="ok"><span class="ar">مشارك</span><span class="en">Shared</span></span>
+        </a>
+        <div class="lcard">
+          <b><span class="ar">⚙️ الأتمتة الأسبوعية</span><span class="en">⚙️ Weekly Automation</span></b>
+          <span class="desc"><span class="ar">تصل أسبوعيًا، جاهزة وتم اختبارها الأسبوع السابق وتعمل بشكل سليم.</span><span class="en">Delivered weekly — ready, tested last week, and working correctly.</span></span>
+          <span class="ok"><span class="ar">مختبرة</span><span class="en">Tested</span></span>
+        </div>
+        <a class="lcard" href="https://crm.zoho.com/crm/org709483323/tab/Dashboards/4412475001388806030" target="_blank" rel="noopener">
+          <b><span class="ar">📈 لوحات المتابعة على Zoho</span><span class="en">📈 Zoho Dashboards</span></b>
+          <span class="desc"><span class="ar">جميع لوحات المتابعة على Zoho، ومنها اللوحة التي أنشأتها لاختيار عينات التقييم.</span><span class="en">All dashboards on Zoho, including the one I built for selecting evaluation samples.</span></span>
+          <span class="ok"><span class="ar">مشارك</span><span class="en">Shared</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot dot-green"></div>
+      <div class="section-title"><span class="ar">٧ &nbsp; الروابط والصلاحيات</span><span class="en">7 &nbsp; Links &amp; Access</span></div>
+      <div class="section-tag tag-green"><span class="ar">صلاحيات كاملة</span><span class="en">Full Access</span></div>
+    </div>
+    <div class="section-body">
+      <p class="ar">تمت مشاركة روابط البوابة والتقارير ومنح صلاحيات كاملة للجميع:</p>
+      <p class="en">Portal and report links were shared, with full access granted to everyone:</p>
+      <div class="links">
+        <a class="lcard" href="https://claude.ai/artifact/1wLAoZeawbeMnKLiZ5SzAK" target="_blank" rel="noopener">
+          <b><span class="ar">🧭 بوابة نجاح العملاء</span><span class="en">🧭 CSM Portal</span></b>
+          <span class="go"><span class="ar">افتح ↖</span><span class="en">Open ↗</span></span>
+        </a>
+        <a class="lcard" href="https://claude.ai/artifact/9P7qyrPUhcJGKZU3aSSGiX" target="_blank" rel="noopener">
+          <b><span class="ar">🏛️ بوابة الجودة</span><span class="en">🏛️ Quality Portal</span></b>
+          <span class="go"><span class="ar">افتح ↖</span><span class="en">Open ↗</span></span>
+        </a>
+        <a class="lcard" href="https://claude.ai/artifact/3BEzM6R8M3x5eop4chtPRA" target="_blank" rel="noopener">
+          <b><span class="ar">📄 تقرير مشروع بوابة نجاح العملاء</span><span class="en">📄 CSM Portal Project Report</span></b>
+          <span class="go"><span class="ar">افتح ↖</span><span class="en">Open ↗</span></span>
+        </a>
+        <a class="lcard" href="https://claude.ai/artifact/5Ehnv2FKg7kam1GPWkUgHA" target="_blank" rel="noopener">
+          <b><span class="ar">📄 تأسيس الجودة — المعايير والفورم والسكربت</span><span class="en">📄 Quality Foundation — Criteria, Form &amp; Script</span></b>
+          <span class="go"><span class="ar">افتح ↖</span><span class="en">Open ↗</span></span>
+        </a>
+        <a class="lcard" href="https://claude.ai/artifact/3AkyBmMnRyZ4qtujyykfgm" target="_blank" rel="noopener">
+          <b><span class="ar">📄 أتمتة التقرير الأسبوعي</span><span class="en">📄 Weekly Report Automation</span></b>
+          <span class="go"><span class="ar">افتح ↖</span><span class="en">Open ↗</span></span>
+        </a>
+        <a class="lcard" href="https://claude.ai/artifact/9VfvZ3cfVaU854QdKYgXor" target="_blank" rel="noopener">
+          <b><span class="ar">📄 تقرير برنامج تدريب نجاح العملاء</span><span class="en">📄 CSM Training Program Report</span></b>
+          <span class="go"><span class="ar">افتح ↖</span><span class="en">Open ↗</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="ar">إعداد: <span class="hl">فداء يوسف</span> &nbsp;|&nbsp; قسم الجودة — فريق نجاح العملاء &nbsp;|&nbsp; <span class="hl">رِواء</span></span>
+    <span class="en">Prepared by: <span class="hl">Fidaa Yousef</span> &nbsp;|&nbsp; Quality Department — Customer Success Team &nbsp;|&nbsp; <span class="hl">Rewaa</span></span>
+  </div>
+
+</div>
+
+<script>
+function toggleLang(){
+  const html=document.documentElement;
+  const isEn=html.classList.toggle('lang-en');
+  html.lang=isEn?'en':'ar';
+  html.dir=isEn?'ltr':'rtl';
+  document.title=isEn?'Knowledge Transfer & Handover Report | Rewaa':'تقرير نقل المعرفة والتسليم | رِواء';
+}
+</script>
+</body>
+</html>
